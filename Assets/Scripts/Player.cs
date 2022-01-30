@@ -1,30 +1,37 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject bullet;
+   public float speed = 5.0f;
 
-    float shootDelay = 0.5f;
-    float timer = 1;
+   public Projectile pLazer;
+   public float firerate = 1.0f;
 
-    void FixedUpdate ()
-    {
-        float move = Input.GetAxisRaw("Horizontal");
-
-        GetComponent<Rigidbody2D>().velocity = new Vector2(move, 0) * GlobalVariables.speed;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        firerate += Time.deltaTime;
 
-        if (Input.GetButtonDown("shoot") && timer > shootDelay)
+        if (Input.GetKey(KeyCode.A))
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
-            timer = 0;
+            this.transform.position += Vector3.left * speed * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            this.transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && firerate >= 1)
+        {
+            Shoot();
+            firerate = 0.5f;
         }
     }
+
+    private void Shoot()
+    {
+        Instantiate(this.pLazer, this.transform.position, Quaternion.identity);
+    }
+
 }
