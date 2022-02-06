@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7317760434462064109}
   - component: {fileID: 79845998586935364}
   - component: {fileID: 9134584544600677867}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InvaderGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,4 +123,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationsprites: []
-  framerate: 1

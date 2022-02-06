@@ -15,7 +15,6 @@ public class Projectile : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Destroy(this.gameObject);
-        Debug.Log("hit");
     }
 
     private void OnBecameInvisible()
