@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,17 +11,21 @@ public class Player : MonoBehaviour
 
    public Projectile pLazer;
    public float firerate = 1.0f;
+
    public int score = 0;
 
    public Sprite death;
    public Sprite live;
    public AudioClip _death;
    public int lives = 3;
+   public Text ScoreT;
+   public Text LivesT;
 
    void Awake()
    {
        player = GetComponent<SpriteRenderer>();
-       player.sprite = this.death;
+       player.sprite = live;
+       LivesT.text = lives.ToString();
    }
 
     void Update()
@@ -54,7 +60,21 @@ public class Player : MonoBehaviour
             lives--;
             GetComponent<Collider2D>().enabled = false;
             player.sprite = death;
+            Invoke("reload", 0.25f);
+            speed = 0f;
+        } 
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
+    void reload() {
+        player.sprite = live;
+        GetComponent<Collider2D>().enabled = true;
+        speed = 5.0f;
+        LivesT.text = lives.ToString();
+    }
+
 }
+

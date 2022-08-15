@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\InvadersGridSpawn.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\Invader.cs" />
+     <Compile Include="Assets\Scripts\Score.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Unity/2020.3.25f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

@@ -21,5 +21,4 @@ public class Projectile : MonoBehaviour
     {
          Destroy(this.gameObject);
     }
-
 }
